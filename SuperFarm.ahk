@@ -97,9 +97,9 @@ myGui.Add("Text", "x22 y135 w180", "PEST REPELLENT")
 myGui.SetFont("s10 w700 c" TEXT, "Segoe UI")
 global pestSwitch := myGui.Add("CheckBox", "vPestSwitch x248 y132 w20 h20").OnEvent("Click", TogglePestRepellent)
 
-; ---- Character input box (dark background, light text) ----
-myGui.SetFont("s11 w700 c" TEXT, "Segoe UI")
-global pestCharInput := myGui.Add("Edit", "vPestChar x22 y158 w50 h24 Limit1 Background" SURFACE, pestRepellentChar)
+; ---- Character input box (white background, black text like mode dropdown) ----
+myGui.SetFont("s11 w700 c000000", "Segoe UI")
+global pestCharInput := myGui.Add("Edit", "vPestChar x22 y158 w50 h24 Limit1 cFFFFFF", pestRepellentChar)
 
 ; ---- Thin divider ----
 myGui.Add("Text", "x0 y190 w320 h1 Background" STROKE)
@@ -209,7 +209,7 @@ SetStatus(msg) {
 
 TogglePestRepellent(*) {
     global pestRepellentEnabled, pestSwitch, pestCharInput
-    pestRepellentEnabled := (pestSwitch.Value = 1)
+    pestRepellentEnabled := pestSwitch.Value
     if (!pestRepellentEnabled) {
         pestCharInput.Value := ""
         SavePestChar("")
@@ -379,7 +379,7 @@ DoStart(*) {
     saved   := myGui.Submit(false)
     Mode    := ["Wheat / Potatoes","Carrot / Nether Wart","Sugar Cane","Cocoa Beans","Melon / Pumpkin","Mushroom","Eclipse / Wild Rose"][saved.Mode]
     holdSec := HOLD[Mode]
-    pestRepellentEnabled := (saved.PestSwitch = 1)
+    pestRepellentEnabled := saved.PestSwitch
     pestRepellentChar := pestCharInput.Value
     cycleRunning := true
     paused       := false
