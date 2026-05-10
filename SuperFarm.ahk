@@ -113,37 +113,37 @@ myGui.Add("Text", "x22 y203 w276", "REFERENCE")
 myGui.SetFont("s10 w400 c" TEXT, "Segoe UI")
 myGui.Add("Text", "x22 y220 w180", "Wheat / Potatoes")
 myGui.SetFont("s10 w600 c" YELLOW, "Segoe UI")
-myGui.Add("Text", "x248 y220 w52", "126") ; <-- fill in here
+myGui.Add("Text", "x248 y220 w52", "126")
 
 myGui.SetFont("s10 w400 c" TEXT, "Segoe UI")
 myGui.Add("Text", "x22 y240 w180", "Carrot / Nether Wart")
 myGui.SetFont("s10 w600 c" LBLUE, "Segoe UI")
-myGui.Add("Text", "x248 y240 w52", "127") ; <-- fill in here
+myGui.Add("Text", "x248 y240 w52", "127")
 
 myGui.SetFont("s10 w400 c" TEXT, "Segoe UI")
 myGui.Add("Text", "x22 y260 w180", "Sugar Cane")
 myGui.SetFont("s10 w600 c" GREEN, "Segoe UI")
-myGui.Add("Text", "x248 y260 w52", "51") ; <-- fill in here
+myGui.Add("Text", "x248 y260 w52", "51")
 
 myGui.SetFont("s10 w400 c" TEXT, "Segoe UI")
 myGui.Add("Text", "x22 y280 w180", "Cocoa Beans")
 myGui.SetFont("s10 w600 cFF9F0A", "Segoe UI")
-myGui.Add("Text", "x248 y280 w52", "76") ; <-- fill in here
+myGui.Add("Text", "x248 y280 w52", "76")
 
 myGui.SetFont("s10 w400 c" TEXT, "Segoe UI")
 myGui.Add("Text", "x22 y300 w180", "Melon / Pumpkin")
 myGui.SetFont("s10 w600 c30D158", "Segoe UI")
-myGui.Add("Text", "x248 y300 w52", "76") ; <-- fill in here
+myGui.Add("Text", "x248 y300 w52", "76")
 
 myGui.SetFont("s10 w400 c" TEXT, "Segoe UI")
 myGui.Add("Text", "x22 y320 w180", "Mushroom")
 myGui.SetFont("s10 w600 cFF453A", "Segoe UI")
-myGui.Add("Text", "x248 y320 w52", "116") ; <-- fill in here
+myGui.Add("Text", "x248 y320 w52", "116")
 
 myGui.SetFont("s10 w400 c" TEXT, "Segoe UI")
 myGui.Add("Text", "x22 y340 w180", "Eclipse / Wild Rose")
 myGui.SetFont("s10 w600 cBF5AF2", "Segoe UI")
-myGui.Add("Text", "x248 y340 w52", "21") ; <-- fill in here
+myGui.Add("Text", "x248 y340 w52", "21")
 
 ; ---- Thin divider ----
 myGui.Add("Text", "x0 y360 w320 h1 Background" STROKE)
@@ -176,7 +176,6 @@ myGui.Show("w320 h487")
 ; ============================================================
 ;  ROUNDED CORNERS via DWM (Windows 11)
 ; ============================================================
-; DWMWA_WINDOW_CORNER_PREFERENCE = 33, DWMWCP_ROUND = 2
 hwnd := myGui.Hwnd
 DllCall("dwmapi\DwmSetWindowAttribute",
     "Ptr",  hwnd,
@@ -195,10 +194,10 @@ WM_LBUTTONDOWN(wParam, lParam, msg, hwnd) {
 ; ============================================================
 ;  HOTKEYS
 ; ============================================================
-^1:: DoStart()     ; Ctrl+1 = force start (stops then restarts)
-^2:: DoStop()      ; Ctrl+2 = force stop
-^3:: DoPause()     ; Ctrl+3 = pause
-^4:: DoResume()    ; Ctrl+4 = resume (only if paused)
+^1:: DoStart()
+^2:: DoStop()
+^3:: DoPause()
+^4:: DoResume()
 
 ; ============================================================
 ;  HELPERS
@@ -220,16 +219,30 @@ TogglePestRepellent(*) {
 SavePestChar(char) {
     global pestRepellentChar
     pestRepellentChar := char
-    ; Read the entire file
     filePath := A_ScriptFullPath
     fileContent := FileRead(filePath)
     
-    ; Replace the global pestRepellentChar line
-    newContent := RegExReplace(fileContent, "global pestRepellentChar := "".*?""", "global pestRepellentChar := """ char """")
+    ; Escape the character for use in regex replacement
+    escapedChar := StrReplace(char, "\", "\\")
     
-    ; Write back to file
-    FileDelete(filePath)
-    FileAppend(newContent, filePath)
+    ; Build the replacement string safely
+    newLine := 'global pestRepellentChar := "' . escapedChar . '"'
+    
+    ; Use simple string replacement instead of regex
+    pattern := 'global pestRepellentChar := "'
+    startPos := InStr(fileContent, pattern)
+    
+    if (startPos > 0) {
+        endPos := InStr(fileContent, '"', , startPos + StrLen(pattern))
+        if (endPos > 0) {
+            beforePart := SubStr(fileContent, 1, startPos - 1)
+            afterPart := SubStr(fileContent, endPos + 1)
+            newContent := beforePart . newLine . afterPart
+            
+            FileDelete(filePath)
+            FileAppend(newContent, filePath)
+        }
+    }
 }
 
 HoldKey(key, ms) {
@@ -258,7 +271,6 @@ HoldKey(key, ms) {
     return true
 }
 
-; Hold a key WITHOUT left click (for movement/turn keys like W, S, D steps)
 HoldKeyNoClick(key, ms) {
     global cycleRunning, paused
     Send("{" key " down}")
@@ -304,7 +316,7 @@ SafeWait(ms) {
 }
 
 ; ============================================================
-;  START  (Ctrl+1 — force restarts if already running)
+;  START  (Ctrl+1)
 ; ============================================================
 DoStart(*) {
     global cycleRunning, paused, holdSec, Mode, pestRepellentEnabled, pestCharInput
@@ -323,7 +335,7 @@ DoStart(*) {
 }
 
 ; ============================================================
-;  STOP  (Ctrl+2 — force stop)
+;  STOP  (Ctrl+2)
 ; ============================================================
 DoStop(*) {
     ForceStop()
@@ -341,7 +353,7 @@ DoPause(*) {
 }
 
 ; ============================================================
-;  RESUME  (Ctrl+4 — only works if paused)
+;  RESUME  (Ctrl+4)
 ; ============================================================
 DoResume(*) {
     global cycleRunning, paused
@@ -358,7 +370,6 @@ RunCycle() {
     global cycleRunning, paused, holdSec, Mode, pestRepellentEnabled, pestRepellentChar
     holdMs := holdSec * 1000
 
-    ; Run the cycle (optionally twice if pest repellent is enabled)
     Loop (pestRepellentEnabled && pestRepellentChar ? 2 : 1) {
         cycleNumber := A_Index
         
@@ -460,7 +471,6 @@ RunCycle() {
         }
 
         ; ---- MELON / PUMPKIN ----
-        ; 5x (D(x) -> W(1s) -> A(x) -> W(1s)) then final D(x)
         else if (Mode = "Melon / Pumpkin") {
             Loop 5 {
                 i := A_Index
@@ -483,7 +493,6 @@ RunCycle() {
         }
 
         ; ---- MUSHROOM ----
-        ; W(x) -> A(0.5s) -> S(x) -> W(x) -> A(0.5s) -> S(x)
         else if (Mode = "Mushroom") {
             SetStatus("Mushroom - W (1/2)")
             if (!HoldKey("w", holdMs))
@@ -506,7 +515,6 @@ RunCycle() {
         }
 
         ; ---- ECLIPSE / WILD ROSE ----
-        ; 15x (D(x) -> S(x)) then final D(x) only — 15.5 cycles
         else if (Mode = "Eclipse / Wild Rose") {
             Loop 15 {
                 i := A_Index
