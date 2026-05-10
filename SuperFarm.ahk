@@ -52,15 +52,15 @@ myGui.SetFont("s1", "Segoe UI")
 dragBar := myGui.Add("Text", "x0 y0 w320 h54 Background" BG)
 
 ; ---- App name ----
-myGui.SetFont("s14 w300 c" TEXT, "Segoe UI Light")
+myGui.SetFont("s14 w700 c" TEXT, "Segoe UI")
 myGui.Add("Text", "x22 y14 w200 h22 Background" BG, "SuperFarm")
 
 ; ---- Subtitle ----
-myGui.SetFont("s8 w400 c" SUB, "Segoe UI")
+myGui.SetFont("s8 w700 c" SUB, "Segoe UI")
 myGui.Add("Text", "x22 y36 w200 Background" BG, "Hypixel Skyblock")
 
 ; ---- Window controls (top right) ----
-myGui.SetFont("s9 w400 c" SUB, "Segoe UI")
+myGui.SetFont("s9 w700 c" SUB, "Segoe UI")
 myGui.Add("Button", "x272 y16 w18 h18", "_").OnEvent("Click", DoMinimise)
 myGui.Add("Button", "x294 y16 w18 h18", "X").OnEvent("Click", DoClose)
 
@@ -70,10 +70,10 @@ myGui.Add("Text", "x0 y54 w320 h1 Background" STROKE)
 ; ============================================================
 ;  MODE SECTION
 ; ============================================================
-myGui.SetFont("s7 w600 c" SUB, "Segoe UI")
+myGui.SetFont("s7 w700 c" SUB, "Segoe UI")
 myGui.Add("Text", "x22 y68 w276", "MODE")
 
-myGui.SetFont("s10 w400 c000000", "Segoe UI")
+myGui.SetFont("s10 w700 c000000", "Segoe UI")
 myGui.Add("DropDownList", "vMode x22 y84 w276 h130 Choose1 AltSubmit", [
     "Wheat / Potatoes",
     "Carrot / Nether Wart",
@@ -90,16 +90,16 @@ myGui.Add("Text", "x0 y122 w320 h1 Background" STROKE)
 ; ============================================================
 ;  PEST REPELLENT SECTION
 ; ============================================================
-myGui.SetFont("s7 w600 c" SUB, "Segoe UI")
+myGui.SetFont("s7 w700 c" SUB, "Segoe UI")
 myGui.Add("Text", "x22 y135 w180", "PEST REPELLENT")
 
 ; ---- Switch (toggle) ----
-myGui.SetFont("s10 w400 c" TEXT, "Segoe UI")
+myGui.SetFont("s10 w700 c" TEXT, "Segoe UI")
 global pestSwitch := myGui.Add("CheckBox", "vPestSwitch x248 y132 w20 h20").OnEvent("Click", TogglePestRepellent)
 
-; ---- Character input box ----
-myGui.SetFont("s11 w600 c" TEXT, "Segoe UI")
-global pestCharInput := myGui.Add("Edit", "vPestChar x22 y158 w50 h24 Limit1", pestRepellentChar)
+; ---- Character input box (dark background, light text) ----
+myGui.SetFont("s11 w700 c" TEXT, "Segoe UI")
+global pestCharInput := myGui.Add("Edit", "vPestChar x22 y158 w50 h24 Limit1 Background" SURFACE, pestRepellentChar)
 
 ; ---- Thin divider ----
 myGui.Add("Text", "x0 y190 w320 h1 Background" STROKE)
@@ -107,42 +107,42 @@ myGui.Add("Text", "x0 y190 w320 h1 Background" STROKE)
 ; ============================================================
 ;  CROP INFO SECTION
 ; ============================================================
-myGui.SetFont("s7 w600 c" SUB, "Segoe UI")
+myGui.SetFont("s7 w700 c" SUB, "Segoe UI")
 myGui.Add("Text", "x22 y203 w276", "REFERENCE")
 
-myGui.SetFont("s10 w400 c" TEXT, "Segoe UI")
+myGui.SetFont("s10 w700 c" TEXT, "Segoe UI")
 myGui.Add("Text", "x22 y220 w180", "Wheat / Potatoes")
-myGui.SetFont("s10 w600 c" YELLOW, "Segoe UI")
+myGui.SetFont("s10 w700 c" YELLOW, "Segoe UI")
 myGui.Add("Text", "x248 y220 w52", "126")
 
-myGui.SetFont("s10 w400 c" TEXT, "Segoe UI")
+myGui.SetFont("s10 w700 c" TEXT, "Segoe UI")
 myGui.Add("Text", "x22 y240 w180", "Carrot / Nether Wart")
-myGui.SetFont("s10 w600 c" LBLUE, "Segoe UI")
+myGui.SetFont("s10 w700 c" LBLUE, "Segoe UI")
 myGui.Add("Text", "x248 y240 w52", "127")
 
-myGui.SetFont("s10 w400 c" TEXT, "Segoe UI")
+myGui.SetFont("s10 w700 c" TEXT, "Segoe UI")
 myGui.Add("Text", "x22 y260 w180", "Sugar Cane")
-myGui.SetFont("s10 w600 c" GREEN, "Segoe UI")
+myGui.SetFont("s10 w700 c" GREEN, "Segoe UI")
 myGui.Add("Text", "x248 y260 w52", "51")
 
-myGui.SetFont("s10 w400 c" TEXT, "Segoe UI")
+myGui.SetFont("s10 w700 c" TEXT, "Segoe UI")
 myGui.Add("Text", "x22 y280 w180", "Cocoa Beans")
-myGui.SetFont("s10 w600 cFF9F0A", "Segoe UI")
+myGui.SetFont("s10 w700 cFF9F0A", "Segoe UI")
 myGui.Add("Text", "x248 y280 w52", "76")
 
-myGui.SetFont("s10 w400 c" TEXT, "Segoe UI")
+myGui.SetFont("s10 w700 c" TEXT, "Segoe UI")
 myGui.Add("Text", "x22 y300 w180", "Melon / Pumpkin")
-myGui.SetFont("s10 w600 c30D158", "Segoe UI")
+myGui.SetFont("s10 w700 c30D158", "Segoe UI")
 myGui.Add("Text", "x248 y300 w52", "76")
 
-myGui.SetFont("s10 w400 c" TEXT, "Segoe UI")
+myGui.SetFont("s10 w700 c" TEXT, "Segoe UI")
 myGui.Add("Text", "x22 y320 w180", "Mushroom")
-myGui.SetFont("s10 w600 cFF453A", "Segoe UI")
+myGui.SetFont("s10 w700 cFF453A", "Segoe UI")
 myGui.Add("Text", "x248 y320 w52", "116")
 
-myGui.SetFont("s10 w400 c" TEXT, "Segoe UI")
+myGui.SetFont("s10 w700 c" TEXT, "Segoe UI")
 myGui.Add("Text", "x22 y340 w180", "Eclipse / Wild Rose")
-myGui.SetFont("s10 w600 cBF5AF2", "Segoe UI")
+myGui.SetFont("s10 w700 cBF5AF2", "Segoe UI")
 myGui.Add("Text", "x248 y340 w52", "21")
 
 ; ---- Thin divider ----
@@ -151,10 +151,10 @@ myGui.Add("Text", "x0 y360 w320 h1 Background" STROKE)
 ; ============================================================
 ;  STATUS SECTION
 ; ============================================================
-myGui.SetFont("s7 w600 c" SUB, "Segoe UI")
+myGui.SetFont("s7 w700 c" SUB, "Segoe UI")
 myGui.Add("Text", "x22 y373 w276", "STATUS")
 
-myGui.SetFont("s10 w300 c" SUB, "Segoe UI Light")
+myGui.SetFont("s10 w700 c" SUB, "Segoe UI")
 global statusText := myGui.Add("Text", "x22 y389 w276 h18", "Idle")
 
 ; ---- Thin divider ----
@@ -163,12 +163,12 @@ myGui.Add("Text", "x0 y413 w320 h1 Background" STROKE)
 ; ============================================================
 ;  ACTION BUTTONS
 ; ============================================================
-myGui.SetFont("s10 w500 c" TEXT, "Segoe UI")
+myGui.SetFont("s10 w700 c" TEXT, "Segoe UI")
 myGui.Add("Button", "x22 y425 w130 h34", "Start  Ctrl+1").OnEvent("Click", DoStart)
 myGui.Add("Button", "x162 y425 w136 h34", "Stop  Ctrl+2").OnEvent("Click", DoStop)
 
 ; ---- Hint row ----
-myGui.SetFont("s7 w400 c" STROKE, "Segoe UI")
+myGui.SetFont("s7 w700 c" STROKE, "Segoe UI")
 myGui.Add("Text", "x22 y467 w276", "Ctrl+3 pause    Ctrl+4 resume")
 
 myGui.Show("w320 h487")
@@ -209,7 +209,7 @@ SetStatus(msg) {
 
 TogglePestRepellent(*) {
     global pestRepellentEnabled, pestSwitch, pestCharInput
-    pestRepellentEnabled := pestSwitch.Value
+    pestRepellentEnabled := (pestSwitch.Value = 1)
     if (!pestRepellentEnabled) {
         pestCharInput.Value := ""
         SavePestChar("")
@@ -222,7 +222,7 @@ SavePestChar(char) {
     filePath := A_ScriptFullPath
     fileContent := FileRead(filePath)
     
-    ; Escape the character for use in regex replacement
+    ; Escape the character for use in replacement
     escapedChar := StrReplace(char, "\", "\\")
     
     ; Build the replacement string safely
@@ -243,6 +243,37 @@ SavePestChar(char) {
             FileAppend(newContent, filePath)
         }
     }
+}
+
+HoldKeyWithStatus(key, ms, statusPrefix) {
+    global cycleRunning, paused, statusText
+    Send("{" key " down}{LButton down}")
+    done := 0
+    Loop {
+        if (!cycleRunning) {
+            Send("{" key " up}{LButton up}")
+            return false
+        }
+        if (paused) {
+            Send("{" key " up}{LButton up}")
+            while (paused && cycleRunning)
+                Sleep(50)
+            if (!cycleRunning)
+                return false
+            Send("{" key " down}{LButton down}")
+        }
+        
+        ; Update status with remaining seconds
+        remaining := (ms - done) / 1000
+        statusText.Value := statusPrefix . " - " . Round(remaining, 1) . "s"
+        
+        Sleep(50)
+        done += 50
+        if (done >= ms)
+            break
+    }
+    Send("{" key " up}{LButton up}")
+    return true
 }
 
 HoldKey(key, ms) {
@@ -297,6 +328,29 @@ HoldKeyNoClick(key, ms) {
     return true
 }
 
+SafeWaitWithStatus(ms, statusMsg) {
+    global cycleRunning, paused, statusText
+    done := 0
+    Loop {
+        if (!cycleRunning)
+            return false
+        while (paused && cycleRunning)
+            Sleep(50)
+        if (!cycleRunning)
+            return false
+        
+        ; Update status with remaining seconds
+        remaining := (ms - done) / 1000
+        statusText.Value := statusMsg . " - " . Round(remaining, 1) . "s"
+        
+        Sleep(50)
+        done += 50
+        if (done >= ms)
+            break
+    }
+    return true
+}
+
 SafeWait(ms) {
     global cycleRunning, paused
     done := 0
@@ -325,7 +379,7 @@ DoStart(*) {
     saved   := myGui.Submit(false)
     Mode    := ["Wheat / Potatoes","Carrot / Nether Wart","Sugar Cane","Cocoa Beans","Melon / Pumpkin","Mushroom","Eclipse / Wild Rose"][saved.Mode]
     holdSec := HOLD[Mode]
-    pestRepellentEnabled := saved.PestSwitch
+    pestRepellentEnabled := (saved.PestSwitch = 1)
     pestRepellentChar := pestCharInput.Value
     cycleRunning := true
     paused       := false
@@ -375,63 +429,45 @@ RunCycle() {
         
         ; ---- WHEAT / POTATOES ----
         if (Mode = "Wheat / Potatoes") {
-            SetStatus("Wheat - D (1/5)")
-            if (!HoldKey("d", holdMs))
+            if (!HoldKeyWithStatus("d", holdMs, "Wheat - D (1/5)"))
                 return
-            SetStatus("Wheat - waiting 2s")
-            if (!SafeWait(2000))
+            if (!SafeWaitWithStatus(2000, "Wheat - waiting"))
                 return
-            SetStatus("Wheat - A (1/2)")
-            if (!HoldKey("a", holdMs))
+            if (!HoldKeyWithStatus("a", holdMs, "Wheat - A (1/2)"))
                 return
-            SetStatus("Wheat - waiting 2s")
-            if (!SafeWait(2000))
+            if (!SafeWaitWithStatus(2000, "Wheat - waiting"))
                 return
-            SetStatus("Wheat - D (2/5)")
-            if (!HoldKey("d", holdMs))
+            if (!HoldKeyWithStatus("d", holdMs, "Wheat - D (2/5)"))
                 return
-            SetStatus("Wheat - waiting 2s")
-            if (!SafeWait(2000))
+            if (!SafeWaitWithStatus(2000, "Wheat - waiting"))
                 return
-            SetStatus("Wheat - A (2/2)")
-            if (!HoldKey("a", holdMs))
+            if (!HoldKeyWithStatus("a", holdMs, "Wheat - A (2/2)"))
                 return
-            SetStatus("Wheat - waiting 2s")
-            if (!SafeWait(2000))
+            if (!SafeWaitWithStatus(2000, "Wheat - waiting"))
                 return
-            SetStatus("Wheat - D (final)")
-            if (!HoldKey("d", holdMs))
+            if (!HoldKeyWithStatus("d", holdMs, "Wheat - D (final)"))
                 return
         }
 
         ; ---- CARROT / NETHER WART ----
         else if (Mode = "Carrot / Nether Wart") {
-            SetStatus("Carrot - A (1/5)")
-            if (!HoldKey("a", holdMs))
+            if (!HoldKeyWithStatus("a", holdMs, "Carrot - A (1/5)"))
                 return
-            SetStatus("Carrot - waiting 2s")
-            if (!SafeWait(2000))
+            if (!SafeWaitWithStatus(2000, "Carrot - waiting"))
                 return
-            SetStatus("Carrot - D (1/2)")
-            if (!HoldKey("d", holdMs))
+            if (!HoldKeyWithStatus("d", holdMs, "Carrot - D (1/2)"))
                 return
-            SetStatus("Carrot - waiting 2s")
-            if (!SafeWait(2000))
+            if (!SafeWaitWithStatus(2000, "Carrot - waiting"))
                 return
-            SetStatus("Carrot - A (2/5)")
-            if (!HoldKey("a", holdMs))
+            if (!HoldKeyWithStatus("a", holdMs, "Carrot - A (2/5)"))
                 return
-            SetStatus("Carrot - waiting 2s")
-            if (!SafeWait(2000))
+            if (!SafeWaitWithStatus(2000, "Carrot - waiting"))
                 return
-            SetStatus("Carrot - D (2/2)")
-            if (!HoldKey("d", holdMs))
+            if (!HoldKeyWithStatus("d", holdMs, "Carrot - D (2/2)"))
                 return
-            SetStatus("Carrot - waiting 2s")
-            if (!SafeWait(2000))
+            if (!SafeWaitWithStatus(2000, "Carrot - waiting"))
                 return
-            SetStatus("Carrot - A (final)")
-            if (!HoldKey("a", holdMs))
+            if (!HoldKeyWithStatus("a", holdMs, "Carrot - A (final)"))
                 return
         }
 
@@ -439,15 +475,12 @@ RunCycle() {
         else if (Mode = "Sugar Cane") {
             Loop 4 {
                 i := A_Index
-                SetStatus("Sugar Cane - D (" i "/4)")
-                if (!HoldKey("d", holdMs))
+                if (!HoldKeyWithStatus("d", holdMs, "Sugar Cane - D (" i "/4)"))
                     return
-                SetStatus("Sugar Cane - S (" i "/4)")
-                if (!HoldKey("s", holdMs))
+                if (!HoldKeyWithStatus("s", holdMs, "Sugar Cane - S (" i "/4)"))
                     return
             }
-            SetStatus("Sugar Cane - D (final)")
-            if (!HoldKey("d", holdMs))
+            if (!HoldKeyWithStatus("d", holdMs, "Sugar Cane - D (final)"))
                 return
         }
 
@@ -455,16 +488,12 @@ RunCycle() {
         else if (Mode = "Cocoa Beans") {
             Loop 14 {
                 i := A_Index
-                SetStatus("Cocoa - W (" i "/14)")
-                if (!HoldKey("w", holdMs))
+                if (!HoldKeyWithStatus("w", holdMs, "Cocoa - W (" i "/14)"))
                     return
-                SetStatus("Cocoa - D step (" i "/14)")
                 if (!HoldKeyNoClick("d", 1000))
                     return
-                SetStatus("Cocoa - S (" i "/14)")
-                if (!HoldKey("s", holdMs))
+                if (!HoldKeyWithStatus("s", holdMs, "Cocoa - S (" i "/14)"))
                     return
-                SetStatus("Cocoa - D step (" i "/14)")
                 if (!HoldKeyNoClick("d", 1000))
                     return
             }
@@ -474,43 +503,32 @@ RunCycle() {
         else if (Mode = "Melon / Pumpkin") {
             Loop 5 {
                 i := A_Index
-                SetStatus("Melon - D (" i "/5)")
-                if (!HoldKey("d", holdMs))
+                if (!HoldKeyWithStatus("d", holdMs, "Melon - D (" i "/5)"))
                     return
-                SetStatus("Melon - W step (" i "/5)")
                 if (!HoldKeyNoClick("w", 1000))
                     return
-                SetStatus("Melon - A (" i "/5)")
-                if (!HoldKey("a", holdMs))
+                if (!HoldKeyWithStatus("a", holdMs, "Melon - A (" i "/5)"))
                     return
-                SetStatus("Melon - W step (" i "/5)")
                 if (!HoldKeyNoClick("w", 1000))
                     return
             }
-            SetStatus("Melon - D (final)")
-            if (!HoldKey("d", holdMs))
+            if (!HoldKeyWithStatus("d", holdMs, "Melon - D (final)"))
                 return
         }
 
         ; ---- MUSHROOM ----
         else if (Mode = "Mushroom") {
-            SetStatus("Mushroom - W (1/2)")
-            if (!HoldKey("w", holdMs))
+            if (!HoldKeyWithStatus("w", holdMs, "Mushroom - W (1/2)"))
                 return
-            SetStatus("Mushroom - A nudge (1/2)")
             if (!HoldKeyNoClick("a", 500))
                 return
-            SetStatus("Mushroom - S (1/2)")
-            if (!HoldKey("s", holdMs))
+            if (!HoldKeyWithStatus("s", holdMs, "Mushroom - S (1/2)"))
                 return
-            SetStatus("Mushroom - W (2/2)")
-            if (!HoldKey("w", holdMs))
+            if (!HoldKeyWithStatus("w", holdMs, "Mushroom - W (2/2)"))
                 return
-            SetStatus("Mushroom - A nudge (2/2)")
             if (!HoldKeyNoClick("a", 500))
                 return
-            SetStatus("Mushroom - S (2/2)")
-            if (!HoldKey("s", holdMs))
+            if (!HoldKeyWithStatus("s", holdMs, "Mushroom - S (2/2)"))
                 return
         }
 
@@ -518,27 +536,22 @@ RunCycle() {
         else if (Mode = "Eclipse / Wild Rose") {
             Loop 15 {
                 i := A_Index
-                SetStatus("Eclipse - D (" i "/15)")
-                if (!HoldKey("d", holdMs))
+                if (!HoldKeyWithStatus("d", holdMs, "Eclipse - D (" i "/15)"))
                     return
-                SetStatus("Eclipse - S (" i "/15)")
-                if (!HoldKey("s", holdMs))
+                if (!HoldKeyWithStatus("s", holdMs, "Eclipse - S (" i "/15)"))
                     return
             }
-            SetStatus("Eclipse - D (final)")
-            if (!HoldKey("d", holdMs))
+            if (!HoldKeyWithStatus("d", holdMs, "Eclipse - D (final)"))
                 return
         }
 
         ; If pest repellent is enabled and this isn't the last cycle, press the key and wait
         if (pestRepellentEnabled && pestRepellentChar && cycleNumber = 1) {
-            SetStatus("Pest Repellent - waiting 2s")
-            if (!SafeWait(2000))
+            if (!SafeWaitWithStatus(2000, "Pest Repellent - waiting"))
                 return
             SetStatus("Pest Repellent - pressing " pestRepellentChar)
             Send(pestRepellentChar)
-            SetStatus("Pest Repellent - waiting 2s")
-            if (!SafeWait(2000))
+            if (!SafeWaitWithStatus(2000, "Pest Repellent - waiting"))
                 return
         }
     }
