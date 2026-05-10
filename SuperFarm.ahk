@@ -93,85 +93,85 @@ myGui.Add("Text", "x0 y122 w320 h1 Background" STROKE)
 myGui.SetFont("s7 w700 c" SUB, "Segoe UI")
 myGui.Add("Text", "x22 y135 w180", "PEST REPELLENT")
 
-; ---- Switch (toggle) ----
+; ---- Switch (toggle) - repositioned lower ----
 myGui.SetFont("s10 w700 c" TEXT, "Segoe UI")
-global pestSwitch := myGui.Add("CheckBox", "vPestSwitch x248 y132 w20 h20").OnEvent("Click", TogglePestRepellent)
+global pestSwitch := myGui.Add("CheckBox", "vPestSwitch x22 y156 w276 h20").OnEvent("Click", TogglePestRepellent)
 
-; ---- Character input box (white background, black text like mode dropdown) ----
+; ---- Character input box (white background, black text) ----
 myGui.SetFont("s11 w700 c000000", "Segoe UI")
-global pestCharInput := myGui.Add("Edit", "vPestChar x22 y158 w50 h24 Limit1 cFFFFFF", pestRepellentChar)
+global pestCharInput := myGui.Add("Edit", "vPestChar x22 y176 w50 h24 Limit1", pestRepellentChar)
 
 ; ---- Thin divider ----
-myGui.Add("Text", "x0 y190 w320 h1 Background" STROKE)
+myGui.Add("Text", "x0 y208 w320 h1 Background" STROKE)
 
 ; ============================================================
 ;  CROP INFO SECTION
 ; ============================================================
 myGui.SetFont("s7 w700 c" SUB, "Segoe UI")
-myGui.Add("Text", "x22 y203 w276", "REFERENCE")
+myGui.Add("Text", "x22 y221 w276", "REFERENCE")
 
 myGui.SetFont("s10 w700 c" TEXT, "Segoe UI")
-myGui.Add("Text", "x22 y220 w180", "Wheat / Potatoes")
+myGui.Add("Text", "x22 y238 w180", "Wheat / Potatoes")
 myGui.SetFont("s10 w700 c" YELLOW, "Segoe UI")
-myGui.Add("Text", "x248 y220 w52", "126")
+myGui.Add("Text", "x248 y238 w52", "126")
 
 myGui.SetFont("s10 w700 c" TEXT, "Segoe UI")
-myGui.Add("Text", "x22 y240 w180", "Carrot / Nether Wart")
+myGui.Add("Text", "x22 y258 w180", "Carrot / Nether Wart")
 myGui.SetFont("s10 w700 c" LBLUE, "Segoe UI")
-myGui.Add("Text", "x248 y240 w52", "127")
+myGui.Add("Text", "x248 y258 w52", "127")
 
 myGui.SetFont("s10 w700 c" TEXT, "Segoe UI")
-myGui.Add("Text", "x22 y260 w180", "Sugar Cane")
+myGui.Add("Text", "x22 y278 w180", "Sugar Cane")
 myGui.SetFont("s10 w700 c" GREEN, "Segoe UI")
-myGui.Add("Text", "x248 y260 w52", "51")
+myGui.Add("Text", "x248 y278 w52", "51")
 
 myGui.SetFont("s10 w700 c" TEXT, "Segoe UI")
-myGui.Add("Text", "x22 y280 w180", "Cocoa Beans")
+myGui.Add("Text", "x22 y298 w180", "Cocoa Beans")
 myGui.SetFont("s10 w700 cFF9F0A", "Segoe UI")
-myGui.Add("Text", "x248 y280 w52", "76")
+myGui.Add("Text", "x248 y298 w52", "76")
 
 myGui.SetFont("s10 w700 c" TEXT, "Segoe UI")
-myGui.Add("Text", "x22 y300 w180", "Melon / Pumpkin")
+myGui.Add("Text", "x22 y318 w180", "Melon / Pumpkin")
 myGui.SetFont("s10 w700 c30D158", "Segoe UI")
-myGui.Add("Text", "x248 y300 w52", "76")
+myGui.Add("Text", "x248 y318 w52", "76")
 
 myGui.SetFont("s10 w700 c" TEXT, "Segoe UI")
-myGui.Add("Text", "x22 y320 w180", "Mushroom")
+myGui.Add("Text", "x22 y338 w180", "Mushroom")
 myGui.SetFont("s10 w700 cFF453A", "Segoe UI")
-myGui.Add("Text", "x248 y320 w52", "116")
+myGui.Add("Text", "x248 y338 w52", "116")
 
 myGui.SetFont("s10 w700 c" TEXT, "Segoe UI")
-myGui.Add("Text", "x22 y340 w180", "Eclipse / Wild Rose")
+myGui.Add("Text", "x22 y358 w180", "Eclipse / Wild Rose")
 myGui.SetFont("s10 w700 cBF5AF2", "Segoe UI")
-myGui.Add("Text", "x248 y340 w52", "21")
+myGui.Add("Text", "x248 y358 w52", "21")
 
 ; ---- Thin divider ----
-myGui.Add("Text", "x0 y360 w320 h1 Background" STROKE)
+myGui.Add("Text", "x0 y378 w320 h1 Background" STROKE)
 
 ; ============================================================
 ;  STATUS SECTION
 ; ============================================================
 myGui.SetFont("s7 w700 c" SUB, "Segoe UI")
-myGui.Add("Text", "x22 y373 w276", "STATUS")
+myGui.Add("Text", "x22 y391 w276", "STATUS")
 
 myGui.SetFont("s10 w700 c" SUB, "Segoe UI")
-global statusText := myGui.Add("Text", "x22 y389 w276 h18", "Idle")
+global statusText := myGui.Add("Text", "x22 y407 w276 h18", "Idle")
 
 ; ---- Thin divider ----
-myGui.Add("Text", "x0 y413 w320 h1 Background" STROKE)
+myGui.Add("Text", "x0 y431 w320 h1 Background" STROKE)
 
 ; ============================================================
 ;  ACTION BUTTONS
 ; ============================================================
 myGui.SetFont("s10 w700 c" TEXT, "Segoe UI")
-myGui.Add("Button", "x22 y425 w130 h34", "Start  Ctrl+1").OnEvent("Click", DoStart)
-myGui.Add("Button", "x162 y425 w136 h34", "Stop  Ctrl+2").OnEvent("Click", DoStop)
+myGui.Add("Button", "x22 y443 w130 h34", "Start  Ctrl+1").OnEvent("Click", DoStart)
+myGui.Add("Button", "x162 y443 w136 h34", "Stop  Ctrl+2").OnEvent("Click", DoStop)
 
 ; ---- Hint row ----
 myGui.SetFont("s7 w700 c" STROKE, "Segoe UI")
-myGui.Add("Text", "x22 y467 w276", "Ctrl+3 pause    Ctrl+4 resume")
+myGui.Add("Text", "x22 y485 w276", "Ctrl+3 pause    Ctrl+4 resume")
 
-myGui.Show("w320 h487")
+myGui.Show("w320 h505")
 
 ; ============================================================
 ;  ROUNDED CORNERS via DWM (Windows 11)
@@ -207,9 +207,9 @@ SetStatus(msg) {
     statusText.Value := msg
 }
 
-TogglePestRepellent(*) {
-    global pestRepellentEnabled, pestSwitch, pestCharInput
-    pestRepellentEnabled := pestSwitch.Value
+TogglePestRepellent(GuiCtrlObj, Info) {
+    global pestRepellentEnabled, pestCharInput
+    pestRepellentEnabled := Info
     if (!pestRepellentEnabled) {
         pestCharInput.Value := ""
         SavePestChar("")
